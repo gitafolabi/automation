@@ -15,13 +15,13 @@
 
 > lsb_release -a
 
-* Vagrant 2.2.16
+* Vagrant
 > sudo apt install vagrant 
 
-*VirtualBox
+* VirtualBox
 >sudo apt install virtualbox
 
-*Ansible
+* Ansible
 >sudo apt-add-repository --yes --update ppa:ansible/ansible
 >sudo apt install ansible
 
@@ -53,31 +53,30 @@ add_packages: Ansible playbook to install/remove packages using APT in an Ubuntu
 
 This will deploy vagrant and spin up the kubernetes clusters and configure the whole boostrapping using ansible
 
-* Kubernetes Network Overview
+#### Kubernetes Network Overview
 ![Inkedansible-kubernetes-vagrant](https://user-images.githubusercontent.com/18261897/202597175-87a6f374-0938-43db-a3ad-5918ba862296.jpg)
 
-*After installing a Kubernetes Cluster it is recommended to:
+After installing a Kubernetes Cluster it is recommended to:
 -   Check the health of the cluster
 -   Check networking status
--   Install kubectl to administer the cluster using a command line
 
 Connect to kubernetes Cluster on the Vagrant
 
 >ssh k8s-m-1
 
-*To check that all the necessary pods and services are running
+To check that all the necessary pods and services are running
 
 >kubectl get pods –all-namespaces
 
-*List the Kubernetes cluster nodes using kubectl from your development host:
+List the Kubernetes cluster nodes using kubectl from your development host:
 >kubectl cluster-info
 
-*Deploy the Voter Application Microservices
+Deploy the Voter Application Microservices
 >kubectl create -f  /voting-app/k8s-specifications
 
-*This will deploy the voting app into the kubernetes clusters in the vagrant.
+This will deploy the voting app into the kubernetes clusters in the vagrant.
 
-*Check if the pods are running:
+Check if the pods are running:
 
 >kubectl get po -n vote
 
