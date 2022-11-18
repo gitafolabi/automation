@@ -1,12 +1,13 @@
+#Features:
+A vagrantfile to Manage 3 VMs For Kubernertes Clusters (1 Cintrol node ans 2 worker nodes)
+Ansible playbook to deploy the K8s clusters in the vagrant
+A simple Voting App deployed as containers into the kubernetes clusters
+Username nad Password Encryptes and stored as Kubernetes Secrets
+Persistence DB with Persitence Volume and PVC
+Application Scalability provided by Horizontal Pod AutoScaler (HPA with minreplica of 1 and Maximum Replica of 4 with Metrics of cpuUtilization)
+GitHub Workflow to Manages Code Scanning (with CodeQL) before Merging Pull requestsInfrastrucure Automation using Ansible
 
-#automation
-
-cd vagrant-ansible-infra
-
-vagrant up
-
-
-####Prerequisites
+##Prerequisites##
 
 A Linux workstation (I am using Ubuntu 20.10) with At least 8 GB of RAM and 15 GB of free hard disk space for the virtual machines.
 
