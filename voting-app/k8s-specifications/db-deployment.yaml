@@ -1,5 +1,5 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: Deployment 
 metadata:
   labels:
     app: db
@@ -20,9 +20,15 @@ spec:
         name: postgres
         env:
         - name: POSTGRES_USER
-          value: postgres
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: user
         - name: POSTGRES_PASSWORD
-          value: postgres
+          valueFrom:
+            secretKeyRef:
+              name: db-credentials
+              key: password
         ports:
         - containerPort: 5432
           name: postgres
@@ -30,6 +36,5 @@ spec:
         - mountPath: /var/lib/postgresql/data
           name: db-data
       volumes:
-      - name: db-data
-        persistentVolumeClaim:
-            claimName: vote-pv-claim
+      - name: votedb
+        emptyDir 
