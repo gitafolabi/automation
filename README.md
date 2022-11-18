@@ -1,7 +1,7 @@
 
 ## Features:
 
-- A vagrantfile to Manage 3 VMs For Kubernertes Clusters (1 Cintrol node ans 2 worker nodes)
+- A vagrantfile to Manage 3 VMs For Kubernertes Clusters (1 Control node and 2 worker nodes)
 - Ansible playbook to automate the deployment the K8s clusters in the vagrant
 - A simple Voting App deployed as containers into the kubernetes clusters
 - Username nad Password Encrypted and stored as Kubernetes Secrets
@@ -46,10 +46,12 @@ add_packages: Ansible playbook to install/remove packages using APT in an Ubuntu
 
 - Vagrantfile: contains the definition of the machines (CPU, memory, network and Ansible playbook and properties)
 
-### To spin up the infrastructure run
-git clone 
+### To spin up the infrastructure run, clone this repo cd to the vagrant folder and vagrant up
+>git clone https://github.com/avurlerby/automation.git 
 
-cd && vagrant up
+>cd vagrant-ansible-infra && vagrant up
+
+This will deploy vagrant and spin up the kubernetes clusters and configure the whole boostrapping using ansible
 
 * Kubernetes Network Overview
 ![Inkedansible-kubernetes-vagrant](https://user-images.githubusercontent.com/18261897/202597175-87a6f374-0938-43db-a3ad-5918ba862296.jpg)
@@ -67,32 +69,6 @@ Connect to kubernetes Cluster on the Vagrant
 
 >kubectl get pods –all-namespaces
 
-*Install kubectl to administer the Kubernetes Cluster from your development host
-
->sudo apt-get update && sudo apt-get install -y apt-transport-https
-
->curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-
->echo "deb https://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
-
->sudo apt-get update
-
->sudo apt-get install -y kubectl
-
-**Copy the Kubernetes config to your local home .kube dir
-
-To create the configuration directory
->mkdir -p ~/.kube
-
-*Find the SSH port of the k8s-m-1 server
->vagrant port k8s-m-1
-
-*The forwarded ports for the machine are listed below.
-    22 (guest) => 2222 (host)
-
-*Copy the file using scp
->scp -P 2222 vagrant@127.0.0.1:/home/vagrant/.kube/config ~/.kube/config
-
 *List the Kubernetes cluster nodes using kubectl from your development host:
 >kubectl cluster-info
 
@@ -102,6 +78,8 @@ To create the configuration directory
 *This will deploy the voting app into the kubernetes clusters in the vagrant.
 
 *Check if the pods are running:
+
 >kubectl get po -n vote
 
-####Thank you !
+
+#### Thank you !
