@@ -1,6 +1,7 @@
 kind: PersistentVolume
 apiVersion: v1
 metadata:
+  namespace: vote
   name: vote-pv-volume
   labels:
     type: local

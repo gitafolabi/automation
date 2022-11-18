@@ -2,6 +2,7 @@ kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
   name: vote-pv-claim
+  namespace: vote
 spec:
   storageClassName: manual
   accessModes:
