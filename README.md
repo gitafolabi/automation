@@ -24,18 +24,19 @@
 
 * Ansible
 >sudo apt-add-repository --yes --update ppa:ansible/ansible
+>
 >sudo apt install ansible
 
 ** File Structure
 
 This code used to create a Kubernetes Cluster with Vagrant and Ansible is composed of:
 
-- .vagrant/: hidden directory for Vagrant tracking. It includes a Vagrant generated Inventory file: vagrant_ansible_inventory that is used by Ansible to match virtual machines and roles.
+- .vagrant/: Hidden directory for Vagrant tracking. It includes a Vagrant generated Inventory file: vagrant_ansible_inventory that is used by Ansible to match virtual machines and roles.
 add_packages: Ansible playbook to install/remove packages using APT in an Ubuntu system.
 
 - roles/
 
-- common/: installs the needed packages for Kubernetes (delegating in add_packages) and configures the common settings for Kubernetes master and nodes.
+- common/: Installs the needed packages for Kubernetes (delegating in add_packages) and configures the common settings for Kubernetes master and nodes.
 
 - k8s/master/: Ansible playbook to configure a Kubernetes master, it uses the common playbook for shared components between the Kubernetes master and the nodes.
 
@@ -48,6 +49,7 @@ add_packages: Ansible playbook to install/remove packages using APT in an Ubuntu
 - Vagrantfile: contains the definition of the machines (CPU, memory, network and Ansible playbook and properties)
 
 ### To spin up the infrastructure run, clone this repo cd to the vagrant folder and vagrant up
+
 >git clone https://github.com/avurlerby/automation.git 
 
 >cd vagrant-ansible-infra && vagrant up
@@ -55,6 +57,7 @@ add_packages: Ansible playbook to install/remove packages using APT in an Ubuntu
 This will deploy vagrant and spin up the kubernetes clusters and configure the whole boostrapping using ansible
 
 #### Kubernetes Network Overview
+
 ![Inkedansible-kubernetes-vagrant](https://user-images.githubusercontent.com/18261897/202597175-87a6f374-0938-43db-a3ad-5918ba862296.jpg)
 
 After installing a Kubernetes Cluster it is recommended to:
