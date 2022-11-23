@@ -4,10 +4,11 @@
 - A vagrantfile to Manage 3 VMs For Kubernertes Clusters (1 Control node and 2 worker nodes)
 - Ansible playbook to automate the deployment the K8s clusters in the vagrant
 - A simple Voting App deployed as containers into the kubernetes clusters
-- Username nad Password Encrypted and stored as Kubernetes Secrets
+- Username and Password Encrypted and stored as Kubernetes Secrets
 - Persistence DB with Persitence Volume and PVC
-- Application Scalability provided by Horizontal Pod AutoScaler (HPA with minreplica of 1 and Maximum Replica of 4 with Metrics of cpuUtilization)
-- GitHub Workflow to Manage Code Scanning (with CodeQL) before Merging Pull requestsInfrastrucure Automation using Ansible
+- Application Scalability provided by Horizontal Pod AutoScaler (HPA with minimum replica of 1 and Maximum Replicas of 4 with Metrics of cpuUtilization)
+- GitHub Workflow to Manage Code Scanning (with CodeQL) before Merging Pull requests
+- Infrastrucure Automation using Ansible (This is used to install all the dependencies for the k8s Clusters)
 
 ### Prerequisites
 
